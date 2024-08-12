@@ -22,6 +22,13 @@ VALIDATE(){
     fi
 }
 
+if [$USERID -ne 0 ]
+then
+    echo "Please run this command with root access"
+else
+    echo "you are super user"
+fi
+
 
 dnf install mysql-server -y &>>$LOGFILE
 VALIDATE $? "Installing MySQL server"
