@@ -40,7 +40,7 @@ VALIDATE $? "Enable nodejs:20"
 dnf install nodejs -y &>>$LOGFILE
 VALIDATE $? "Installing Nodejs"
 
-id expense
+id expense &>>$LOGFILE
 
 if [ $? -ne 0 ]
 then
@@ -52,10 +52,10 @@ fi
 mkdir -p /app &>>$LOGFILE
 VALIDATE $? "Creating app Directory" 
 
-curl -o /tmp/backend.zip https://expense-builds.s3.us-east-1.amazonaws.com/expense-backend-v2.zip
+curl -o /tmp/backend.zip https://expense-builds.s3.us-east-1.amazonaws.com/expense-backend-v2.zip &>>$LOGFILE
 VALIDATE $? "Downlod backendzip file"
 cd /app
-rmdir -rf /app/*
+rm -rf /app/*
 unzip /tmp/backend.zip &>>$LOGFILE
 VALIDATE $? "Unzip backend file"
 
