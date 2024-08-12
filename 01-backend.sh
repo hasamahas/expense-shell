@@ -76,6 +76,9 @@ VALIDATE $? "Start backend service"
 systemctl enable backend &>>$LOGFILE
 VALIDATE $? "Enable Backend Service"
 
+dnf install mysql -y &>>$LOGFILE
+VALIDATE $? "Installing MySQL client"
+
 mysql -h db.hasamahas.online -uroot -p${mysql_root_password} < /app/schema/backend.sql &>>$LOGFILE
 VALIDATE $? "Loading the Schema"
 
