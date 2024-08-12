@@ -64,7 +64,7 @@ cd /app
 npm install &>>$LOGFILE
 VALIDATE $? "Installing depenent libraries"
 
-cp D:\DevOps\April2024_Siva\repos\expense-shell\backend.service /etc/systemd/system/backend.service &>>$LOGFILE
+cp /home/ec2-user/expense-shell/backend.service /etc/systemd/system/backend.service &>>$LOGFILE
 VALIDATE $? "Creating backend.service"
 
 systemctl daemon-reload &>>$LOGFILE
