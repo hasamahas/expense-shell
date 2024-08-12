@@ -34,10 +34,10 @@ fi
 dnf install mysql-server -y &>>$LOGFILE
 VALIDATE $? "Installing MySQL server"
 
-systemctl start mysqld -y &>>$LOGFILE
+systemctl start mysqld  &>>$LOGFILE
 VALIDATE $? "Start MySQL server"
 
-systemctl enable mysqld -y &>>$LOGFILE
+systemctl enable mysqld  &>>$LOGFILE
 VALIDATE $? "Enable MySQL Server"
 
 mysql -h db.hasamahas.online -uroot -p${mysql_root_password} -e 'show databases;' &>>$LOGFILE
