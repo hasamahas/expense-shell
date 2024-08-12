@@ -30,9 +30,13 @@ else
     echo "you are super user"
 fi
 
-
-dnf install mysql-server -y &>>$LOGFILE
-VALIDATE $? "Installing MySQL server"
+dnf list installed mysql-server &>>$LOGFILE
+if [$? -ne 0 ]
+then
+    dnf install mysql-server -y &>>$LOGFILE
+    VALIDATE $? "Installing MySQL server"
+else
+    echo -e "MySQL server is already installed ... $Y SKIPPING$N"
 
 systemctl start mysqld  &>>$LOGFILE
 VALIDATE $? "Start MySQL server"
