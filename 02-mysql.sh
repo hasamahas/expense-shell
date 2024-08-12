@@ -10,7 +10,7 @@ G="\e[32m"
 Y="\e[33m"
 N="\e[0m"
 
-echo "Enter MySQL db password"
+echo "Enter MySQL db password:"
 read -s mysql_root_password
 
 VALIDATE(){
