@@ -31,7 +31,7 @@ else
 fi
 
 dnf list installed mysql-server &>>$LOGFILE
-if [$? -ne 0 ]
+if [ $? -ne 0 ]
 then
     dnf install mysql-server -y &>>$LOGFILE
     VALIDATE $? "Installing MySQL server"
