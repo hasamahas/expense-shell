@@ -37,7 +37,7 @@ then
     VALIDATE $? "Installing MySQL server"
 else
     echo -e "MySQL server is already installed ... $Y SKIPPING$N"
-
+fi
 systemctl start mysqld  &>>$LOGFILE
 VALIDATE $? "Start MySQL server"
 
